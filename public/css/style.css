@@ -226,30 +226,74 @@ a {
 }
 .listing-card {
   border: none !important;
-  border-radius: 1.1rem;
+  border-radius: 1.3rem;
   overflow: hidden;
   margin-bottom: 1.3rem;
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  position: relative;
+  background: #fff;
+  animation: cardRise 0.7s ease both;
 }
 .listing-card:hover {
   transform: translateY(-8px) scale(1.01);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16);
+}
+.image-wrap {
+  position: relative;
+  overflow: hidden;
 }
 .card-img-top {
-  border-radius: 1.1rem 1.1rem 0 0 !important;
+  border-radius: 1.3rem 1.3rem 0 0 !important;
   width: 100% !important;
   height: 20rem;
   object-fit: cover !important;
+  transition: transform 0.45s ease;
+}
+.listing-card:hover .card-img-top {
+  transform: scale(1.06);
+}
+.card-badge {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  background: rgba(255, 255, 255, 0.92);
+  color: #111827;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
 }
 .card-body {
   padding: 1rem 1rem 1.2rem !important;
 }
-.card-text {
-  font-weight: 400;
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.card-title {
+  font-weight: 700;
   color: #111827;
+  margin-bottom: 0.15rem;
+}
+.card-price {
+  font-weight: 700;
+  color: #fe424d;
+  margin-bottom: 0.1rem;
+}
+.card-location {
+  color: #6b7280;
+  font-size: 0.92rem;
+  margin: 0;
+}
+.card-tax {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
 }
 .listing-link {
   text-decoration: none;
@@ -389,6 +433,74 @@ a {
 .show-img {
   height: 30vh !important;
 }
+.detail-page {
+  padding-bottom: 2rem;
+}
+.detail-hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.detail-card,
+.map-card,
+.review-card {
+  border: none;
+  border-radius: 1.2rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  background: #fff;
+  overflow: hidden;
+}
+.detail-card {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+}
+.detail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.detail-body {
+  padding: 1.4rem;
+}
+.detail-description {
+  color: #4b5563;
+  margin-top: 0.6rem;
+}
+.detail-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+.detail-meta p {
+  margin: 0.2rem 0 0;
+  color: #6b7280;
+}
+.map-card {
+  padding: 1rem;
+}
+.map-card__header p {
+  color: #6b7280;
+  margin: 0.2rem 0 0;
+}
+.map-frame {
+  margin-top: 0.8rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  height: 280px;
+}
+.map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.review-section {
+  margin-top: 1rem;
+}
+.review-card {
+  height: 100%;
+}
 .btns {
   display: flex;
   gap: 0.8rem;
@@ -436,6 +548,16 @@ a {
     transform: translateY(0) scale(1);
   }
 }
+@keyframes cardRise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 @keyframes drift {
   0%,
   100% {
@@ -452,6 +574,19 @@ a {
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+  .detail-hero,
+  .detail-card {
+    grid-template-columns: 1fr;
+  }
+  .detail-card {
+    display: block;
+  }
+  .detail-image {
+    height: 240px;
+  }
+  .detail-meta {
+    grid-template-columns: 1fr;
   }
   .navbar {
     padding: 0.5rem 0;
