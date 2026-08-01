@@ -1,31 +1,48 @@
 <% layout("/layouts/boilerplate")%>
-
-<div class="rows">
-  <h1 class="col-6 offset-4">Login</h1>
-  <div class="col-8 offset-2">
-    <form action="/login" method="POST" class="needs-validation" novalidate>
-      <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <input
-          name="username"
-          id="username"
-          type="text"
-          class="form-control"
-          required
-        />
-      </div>
-
-      <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input
-          name="password"
-          id="password"
-          type="password"
-          class="form-control"
-          required
-        />
-      </div>
-      <button class="btn btn-success">Login</button>
-    </form>
+<div class="auth-page reveal">
+  <div class="auth-card auth-card--login">
+    <div class="auth-card__side">
+      <p class="eyebrow">Welcome back</p>
+      <h1>Log in to VistaStay</h1>
+      <p>Pick up where you left off and continue exploring beautiful stays.</p>
+      <ul>
+        <li>Browse your saved favorites</li>
+        <li>Create new listings</li>
+        <li>Leave thoughtful reviews</li>
+      </ul>
+    </div>
+    <div class="auth-card__form">
+      <form
+        action="/login"
+        method="POST"
+        class="needs-validation auth-form"
+        novalidate
+      >
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input
+            name="username"
+            id="username"
+            type="text"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            name="password"
+            id="password"
+            type="password"
+            class="form-control"
+            required
+          />
+        </div>
+        <button class="btn btn-dark w-100">Login</button>
+        <p class="auth-switch">
+          New here? <a href="/signup">Create an account</a>
+        </p>
+      </form>
+    </div>
   </div>
 </div>

@@ -1,41 +1,61 @@
 <% layout("/layouts/boilerplate")%>
-
-<div class="rows">
-  <h1 class="col-6 offset-4">SignUp on VistaStay</h1>
-  <div class="col-8 offset-2">
-    <form action="/signup" method="POST" class="needs-validation" novalidate>
-      <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <input
-          name="username"
-          id="username"
-          type="text"
-          class="form-control"
-          required
-        />
-        <div class="valid-feedback">Looks good!</div>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input
-          name="email"
-          id="email"
-          type="email"
-          class="form-control"
-          required
-        />
-      </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input
-          name="password"
-          id="password"
-          type="password"
-          class="form-control"
-          required
-        />
-      </div>
-      <button class="btn btn-success">SignUp</button>
-    </form>
+<div class="auth-page reveal">
+  <div class="auth-card auth-card--signup">
+    <div class="auth-card__side">
+      <p class="eyebrow">Welcome to VistaStay</p>
+      <h1>Create your account</h1>
+      <p>
+        Join a growing community of travelers and hosts who love beautiful
+        stays.
+      </p>
+      <ul>
+        <li>Save favorite places</li>
+        <li>Manage your own listings</li>
+        <li>Share your travel stories</li>
+      </ul>
+    </div>
+    <div class="auth-card__form">
+      <form
+        action="/signup"
+        method="POST"
+        class="needs-validation auth-form"
+        novalidate
+      >
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input
+            name="username"
+            id="username"
+            type="text"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            name="email"
+            id="email"
+            type="email"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            name="password"
+            id="password"
+            type="password"
+            class="form-control"
+            required
+          />
+        </div>
+        <button class="btn btn-dark w-100">Sign up</button>
+        <p class="auth-switch">
+          Already have an account? <a href="/login">Log in</a>
+        </p>
+      </form>
+    </div>
   </div>
 </div>

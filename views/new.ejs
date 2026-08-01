@@ -1,13 +1,16 @@
 <% layout("/layouts/boilerplate")%>
-<div class="rows">
-  <div class="col-8 offset-2">
-    <br />
-    <h3>Create a New Listing</h3>
+<div class="form-page reveal">
+  <div class="form-card">
+    <div class="form-card__intro">
+      <p class="eyebrow">New experience</p>
+      <h3>Create a standout listing</h3>
+      <p>Share a place that feels special and let travelers discover it.</p>
+    </div>
     <form
       method="POST"
       action="/listings"
       novalidate
-      class="needs-validation"
+      class="needs-validation form-panel"
       enctype="multipart/form-data"
     >
       <div class="mb-3">
@@ -19,20 +22,37 @@
           class="form-control"
           required
         />
-        <div class="valid-feedback">Title Looks good!</div>
+        <div class="valid-feedback">Looks great!</div>
       </div>
       <div class="mb-3">
         <label for="description" class="form-label">Description</label>
         <textarea
           name="listing[description]"
           class="form-control"
+          rows="4"
           required
         ></textarea>
         <div class="invalid-feedback">Please enter a short description</div>
       </div>
-
       <div class="mb-3">
-        <label for="image" class="form-label">Upload Listing Image</label>
+        <label for="category" class="form-label">Category</label>
+        <select name="listing[category]" class="form-select" required>
+          <option value="">Choose a category</option>
+          <option value="Trending">Trending</option>
+          <option value="Rooms">Rooms</option>
+          <option value="Iconic Cities">Iconic Cities</option>
+          <option value="Mountains">Mountains</option>
+          <option value="Castles">Castles</option>
+          <option value="Amazing Pools">Amazing Pools</option>
+          <option value="Camping">Camping</option>
+          <option value="Farms">Farms</option>
+          <option value="Arctic">Arctic</option>
+          <option value="Domes">Domes</option>
+          <option value="Boats">Boats</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload listing image</label>
         <input
           name="listing[image]"
           type="file"
@@ -46,10 +66,11 @@
           <input
             name="listing[price]"
             placeholder="1200"
+            type="number"
             class="form-control"
             required
           />
-          <div class="invalid-feedback">Price Should be valid</div>
+          <div class="invalid-feedback">Price should be valid</div>
         </div>
         <div class="mb-3 col-md-8">
           <label for="country" class="form-label">Country</label>
@@ -60,22 +81,21 @@
             class="form-control"
             required
           />
-          <div class="invalid-feedback">Country Name should be valid</div>
+          <div class="invalid-feedback">Country name should be valid</div>
         </div>
       </div>
       <div class="mb-3">
         <label for="location" class="form-label">Location</label>
         <input
           name="listing[location]"
-          placeholder="jaipur,rajastan"
+          placeholder="Jaipur, Rajasthan"
           type="text"
           class="form-control"
           required
         />
         <div class="invalid-feedback">Location should be valid</div>
       </div>
-      <button class="btn btn-dark add-btn">Add</button>
-      <br /><br />
+      <button class="btn btn-dark add-btn">Publish listing</button>
     </form>
   </div>
 </div>
