@@ -25,6 +25,40 @@ module.exports.renderLoginform = (req, res) => {
   res.render("users/login.ejs");
 };
 
+module.exports.renderForgotPasswordForm = (req, res) => {
+  res.render("users/forgot-password.ejs");
+};
+
+module.exports.forgotPassword = async (req, res) => {
+  try {
+    const { email, username, password, confirmPassword } = req.body;
+
+    if (!password || !confirmPassword || password !== confirmPassword) {
+      req.flash("error", "Passwords do not match.");
+      return res.redirect("/forgot-password");
+    }
+
+    const lookup = email || username;
+    const user = await User.findOne({
+      $or: [{ email: lookup }, { username: lookup }],
+    });
+
+    if (!user) {
+      req.flash("error", "No account found with that email or username.");
+      return res.redirect("/forgot-password");
+    }
+
+    await user.setPassword(password);
+    await user.save();
+
+    req.flash("success", "Password reset successful. Please log in again.");
+    res.redirect("/login");
+  } catch (e) {
+    req.flash("error", e.message || "Unable to reset password.");
+    res.redirect("/forgot-password");
+  }
+};
+
 module.exports.login = async (req, res) => {
   req.flash("success", "Welcome back to VistaStay!");
   let redirectUrl = res.locals.redirectUrl || "listings";

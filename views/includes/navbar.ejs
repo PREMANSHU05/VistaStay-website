@@ -13,16 +13,19 @@
         <a class="nav-link" href="/listings/new">List your stay</a>
       </div>
       <form class="d-flex navbar-search" role="search" action="/listings" method="GET">
-        <input class="form-control search-inp" type="search" name="search" placeholder="Search destination" value="<%= typeof searchTerm !== 'undefined' ? searchTerm : '' %>" />
-        <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+        <div class="search-field">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input class="form-control search-inp" type="search" name="search" placeholder="Search destination" value="<%= typeof searchTerm !== 'undefined' ? searchTerm : '' %>" />
+        </div>
+        <button class="btn search-btn" type="submit">Search</button>
       </form>
-      <div class="navbar-nav ms-3">
+      <div class="navbar-nav ms-3 auth-actions">
         <% if(!currUser) { %>
         <a class="nav-link nav-pill" href="/signup">Sign up</a>
         <a class="nav-link nav-pill nav-pill--accent" href="/login">Login</a>
         <% } %>
         <% if(currUser) { %>
-        <a class="nav-link" href="/logout">Logout</a>
+        <a class="nav-link logout-link" href="/logout">Logout</a>
         <% } %>
       </div>
     </div>
